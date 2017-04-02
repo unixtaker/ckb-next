@@ -60,6 +60,10 @@
 #define P_SCIMITAR_STR  "1b1e"
 #define IS_SCIMITAR(kb) ((kb)->vendor == V_CORSAIR && ((kb)->product == P_SCIMITAR))
 
+#define P_SCIMITAR_PRO 0x1b3e
+#define P_SCIMITAR_PRO_STR "1b3e"
+#define IS_SCIMITAR_PRO(kb) ((kb)->vendor == V_CORSAIR && ((kb)->product == P_SCIMITAR_PRO))
+
 // NOTE: when adding new devices please update src/ckb/fwupgradedialog.cpp as well.
 // It should contain the same vendor/product IDs for any devices supporting firmware updates.
 
@@ -80,7 +84,7 @@ const char* product_str(short product);
 #define IS_FULLRANGE(kb)                (IS_RGB((kb)->vendor, (kb)->product) && (kb)->product != P_K65 && (kb)->product != P_K70 && (kb)->product != P_K95)
 
 // Mouse vs keyboard test
-#define IS_MOUSE(vendor, product)       ((vendor) == (V_CORSAIR) && ((product) == (P_M65) || (product) == (P_M65_PRO) || (product) == (P_SABRE_O) || (product) == (P_SABRE_L) || (product) == (P_SABRE_N) || (product) == (P_SCIMITAR) || (product) == (P_SABRE_O2)))
+#define IS_MOUSE(vendor, product)       ((vendor) == (V_CORSAIR) && ((product) == (P_M65) || (product) == (P_M65_PRO) || (product) == (P_SABRE_O) || (product) == (P_SABRE_L) || (product) == (P_SABRE_N) || (product) == (P_SCIMITAR) || (product) == (P_SABRE_O2) || (product) == (P_SCIMITAR_PRO) ))
 #define IS_MOUSE_DEV(kb)                IS_MOUSE((kb)->vendor, (kb)->product)
 
 // USB delays for when the keyboards get picky about timing

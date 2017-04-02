@@ -59,6 +59,7 @@ public:
         M65,
         SABRE,
         SCIMITAR,
+		SCIMITAR_PRO,
         _MODEL_MAX
     };
     // Key layouts (ordered alphabetically by name)
@@ -92,7 +93,7 @@ public:
     // Keyboard or mouse?
     inline static bool  isKeyboard(Model model) { return !isMouse(model) && model != NO_MODEL; }
     inline bool         isKeyboard() const      { return isKeyboard(keyModel); }
-    inline static bool  isMouse(Model model)    { return model == M65 || model == SABRE || model == SCIMITAR; }
+    inline static bool  isMouse(Model model)    { return model == M65 || model == SABRE || model == SCIMITAR || model == SCIMITAR_PRO; }
     inline bool         isMouse() const         { return isMouse(keyModel); }
 
     // Creates a blank key map

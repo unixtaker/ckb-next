@@ -127,7 +127,7 @@ void KeyWidget::paintEvent(QPaintEvent*){
             overlay = sabOverlay;
             xpos = 1.f;
             ypos = -2.f;
-        } else if(model == KeyMap::SCIMITAR){
+        } else if(model == KeyMap::SCIMITAR || model == KeyMap::SCIMITAR_PRO){
             if(!scimOverlay)
                 scimOverlay = new QImage(":/img/overlay_scimitar.png");
             overlay = scimOverlay;
@@ -197,7 +197,7 @@ void KeyWidget::paintEvent(QPaintEvent*){
             if(!strcmp(key.name, "sniper"))
                 // Sniper key uses a reddish base color instead of the usual grey
                 bgPainter.setBrush(QBrush(sniperColor));
-            else if(model == KeyMap::SCIMITAR && !strncmp(key.name, "thumb", 5) && strcmp(key.name, "thumb"))
+            else if( (model == KeyMap::SCIMITAR || model == KeyMap::SCIMITAR_PRO) && !strncmp(key.name, "thumb", 5) && strcmp(key.name, "thumb"))
                 // Thumbgrid keys use a black color
                 bgPainter.setBrush(QBrush(thumbColor));
             else if(!strcmp(key.name, "lsidel") || !strcmp(key.name, "rsidel") || !strcmp(key.name, "logo"))

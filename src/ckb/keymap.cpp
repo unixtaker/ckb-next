@@ -356,6 +356,16 @@ static QHash<QString, Key> getMap(KeyMap::Model model, KeyMap::Layout layout){
         }
         break;
     }
+	case KeyMap::SCIMITAR_PRO:{
+        // Scimitar mouse
+        for(const Key* key = ScimKeys; key < ScimKeys + KEYCOUNT_SCIM; key++){
+            Key translatedKey = *key;
+            translatedKey.x += translatedKey.width / 2;
+            translatedKey.y += translatedKey.height / 2;
+            map[key->name] = translatedKey;
+        }
+        break;
+    }
     case KeyMap::SCIMITAR:{
         // Scimitar mouse
         for(const Key* key = ScimKeys; key < ScimKeys + KEYCOUNT_SCIM; key++){
@@ -508,6 +518,9 @@ KeyMap::Model KeyMap::getModel(const QString& name){
         return SABRE;
     if(lower == "scimitar")
         return SCIMITAR;
+    if(lower == "scimitar pro")
+        return SCIMITAR_PRO;
+
     return NO_MODEL;
 }
 
@@ -527,6 +540,8 @@ QString KeyMap::getModel(KeyMap::Model model){
         return "sabre";
     case SCIMITAR:
         return "scimitar";
+    case SCIMITAR_PRO:
+        return "scimitar pro";
     default:
         return "";
     }
@@ -552,6 +567,7 @@ int KeyMap::modelWidth(Model model){
     case M65:
     case SABRE:
     case SCIMITAR:
+    case SCIMITAR_PRO:
         return M65_WIDTH;
     default:
         return 0;
@@ -568,6 +584,7 @@ int KeyMap::modelHeight(Model model){
     case M65:
     case SABRE:
     case SCIMITAR:
+    case SCIMITAR_PRO:
         return M65_HEIGHT;
     default:
         return 0;
